@@ -6,7 +6,7 @@ export const connectDB = (url) => {
         .then((data) => {
             console.log(`connect to DB : ${data.connection.host}`);
         })
-        .catch((err) => {
+        .catch((err) => { 
             console.log(err);
         });
 }; 

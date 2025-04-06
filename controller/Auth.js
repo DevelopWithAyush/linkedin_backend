@@ -50,6 +50,15 @@ export const linkedInCallback = async (req, res) => {
         // console.log(accessToken);
         const userInfo = await getUserInfo(accessToken.access_token);
         console.log(userInfo);
+        const token = jwt.sign({ userId: userInfo.sub }, "ayushdubeykyahorahahai", { expiresIn: '1h' });
+
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+            maxAge: 1 * 24 * 60 * 60 * 1000
+        });
+
 
         res.status(200).json({ userInfo });
     } catch (error) {
