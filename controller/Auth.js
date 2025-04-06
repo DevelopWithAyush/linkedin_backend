@@ -54,14 +54,14 @@ export const linkedInCallback = async (req, res) => {
         console.log(userInfo);
         const token = jwt.sign({ userId: userInfo.sub }, "ayushdubeykyahorahahai", { expiresIn: '1h' });
 
-        res.cookie('token', token, {
+         return res.cookie('token', token, {
             domain: '.axturo.com',
             path: '/',
             httpOnly: true,
             secure: true,
             sameSite: 'none',
             maxAge: 1 * 24 * 60 * 60 * 1000
-        });
+        }).redirect("https://linkedin.axturo.com/profile");
 
 
       
