@@ -55,6 +55,8 @@ export const linkedInCallback = async (req, res) => {
         const token = jwt.sign({ userId: userInfo.sub }, "ayushdubeykyahorahahai", { expiresIn: '1h' });
 
         res.cookie('token', token, {
+            domain: '.axturo.com',
+            path: '/',
             httpOnly: true,
             secure: true,
             sameSite: 'none',
