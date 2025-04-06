@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 export const getAccessToken = async (code) => {
     const body = new URLSearchParams({
         grant_type: 'authorization_code',
